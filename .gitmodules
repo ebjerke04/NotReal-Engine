@@ -1,0 +1,3 @@
+[submodule "NotReal-Engine/vendor/spdlog"]
+	path = NotReal-Engine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
