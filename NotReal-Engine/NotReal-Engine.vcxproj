@@ -79,18 +79,19 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>nrpch.pch</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>NR_PLATFORM_WINDOWS;NR_BUILD_DLL;NR_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NR_PLATFORM_WINDOWS;NR_BUILD_DLL;GLFW_INCLUDE_NONE;NR_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/utf-8 /MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Debug-windows-x86_64\NotReal-Engine\NotReal-Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -102,15 +103,15 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>nrpch.pch</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>NR_PLATFORM_WINDOWS;NR_BUILD_DLL;NR_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NR_PLATFORM_WINDOWS;NR_BUILD_DLL;GLFW_INCLUDE_NONE;NR_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/utf-8 /MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -118,6 +119,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Release-windows-x86_64\NotReal-Engine\NotReal-Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -129,15 +131,15 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>nrpch.pch</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>NR_PLATFORM_WINDOWS;NR_BUILD_DLL;NR_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NR_PLATFORM_WINDOWS;NR_BUILD_DLL;GLFW_INCLUDE_NONE;NR_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/utf-8 /MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -145,6 +147,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Dist-windows-x86_64\NotReal-Engine\NotReal-Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -160,14 +163,40 @@
     <ClInclude Include="src\NotReal\Events\Event.h" />
     <ClInclude Include="src\NotReal\Events\KeyEvent.h" />
     <ClInclude Include="src\NotReal\Events\MouseEvent.h" />
+    <ClInclude Include="src\NotReal\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\NotReal\Input.h" />
+    <ClInclude Include="src\NotReal\KeyCodes.h" />
+    <ClInclude Include="src\NotReal\Layer.h" />
+    <ClInclude Include="src\NotReal\LayerStack.h" />
     <ClInclude Include="src\NotReal\Log.h" />
+    <ClInclude Include="src\NotReal\MouseButtonCodes.h" />
+    <ClInclude Include="src\NotReal\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\NotReal\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\NotReal\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\NotReal\Application.cpp" />
+    <ClCompile Include="src\NotReal\ImGui\ImGuiBuild.cpp" />
+    <ClCompile Include="src\NotReal\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\NotReal\Layer.cpp" />
+    <ClCompile Include="src\NotReal\LayerStack.cpp" />
     <ClCompile Include="src\NotReal\Log.cpp" />
+    <ClCompile Include="src\NotReal\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\NotReal\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\nrpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
+      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\Glad\Glad.vcxproj">
+      <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

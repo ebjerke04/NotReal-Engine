@@ -1,3 +1,12 @@
 [submodule "NotReal-Engine/vendor/spdlog"]
 	path = NotReal-Engine/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "NotReal-Engine/vendor/GLFW"]
+	path = NotReal-Engine/vendor/GLFW
+	url = https://github.com/TheCherno/glfw
+[submodule "NotReal-Engine/vendor/imgui"]
+	path = NotReal-Engine/vendor/imgui
+	url = https://github.com/ebjerke04/imgui.git
+[submodule "NotReal-Engine/vendor/glm"]
+	path = NotReal-Engine/vendor/glm
+	url = https://github.com/g-truc/glm.git

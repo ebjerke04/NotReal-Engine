@@ -7,6 +7,18 @@
     <Filter Include="NotReal\Events">
       <UniqueIdentifier>{BE94B29C-AA62-A6A2-93F6-16C97F638207}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NotReal\ImGui">
+      <UniqueIdentifier>{C4AA7EF5-306B-FA2B-F9A5-43A965253F08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NotReal\Platform">
+      <UniqueIdentifier>{AEC3C8AF-9ABC-E701-C3EE-CC86AF46C70D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NotReal\Platform\OpenGL">
+      <UniqueIdentifier>{22BD0ABB-8EF4-5252-97FE-B67503B5794B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NotReal\Platform\Windows">
+      <UniqueIdentifier>{E83B7E74-D460-CDF4-FDAB-B284E92FCC12}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\NotReal.h" />
@@ -31,7 +43,34 @@
     <ClInclude Include="src\NotReal\Events\MouseEvent.h">
       <Filter>NotReal\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\NotReal\ImGui\ImGuiLayer.h">
+      <Filter>NotReal\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Input.h">
+      <Filter>NotReal</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\KeyCodes.h">
+      <Filter>NotReal</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Layer.h">
+      <Filter>NotReal</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\LayerStack.h">
+      <Filter>NotReal</Filter>
+    </ClInclude>
     <ClInclude Include="src\NotReal\Log.h">
+      <Filter>NotReal</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\MouseButtonCodes.h">
+      <Filter>NotReal</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Platform\Windows\WindowsInput.h">
+      <Filter>NotReal\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Platform\Windows\WindowsWindow.h">
+      <Filter>NotReal\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Window.h">
       <Filter>NotReal</Filter>
     </ClInclude>
   </ItemGroup>
@@ -39,9 +78,25 @@
     <ClCompile Include="src\NotReal\Application.cpp">
       <Filter>NotReal</Filter>
     </ClCompile>
+    <ClCompile Include="src\NotReal\ImGui\ImGuiBuild.cpp">
+      <Filter>NotReal\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotReal\Layer.cpp">
+      <Filter>NotReal</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotReal\LayerStack.cpp">
+      <Filter>NotReal</Filter>
+    </ClCompile>
     <ClCompile Include="src\NotReal\Log.cpp">
       <Filter>NotReal</Filter>
     </ClCompile>
+    <ClCompile Include="src\NotReal\Platform\Windows\WindowsInput.cpp">
+      <Filter>NotReal\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotReal\Platform\Windows\WindowsWindow.cpp">
+      <Filter>NotReal\Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\nrpch.cpp" />
+    <ClCompile Include="src\NotReal\ImGui\ImGuiLayer.cpp" />
   </ItemGroup>
 </Project>

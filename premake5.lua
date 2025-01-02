@@ -10,6 +10,16 @@ workspace "NotReal-Engine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "NotReal-Engine/vendor/GLFW/include"
+IncludeDir["Glad"] = "NotReal-Engine/vendor/Glad/include"
+IncludeDir["ImGui"] = "NotReal-Engine/vendor/imgui"
+IncludeDir["glm"] = "NotReal-Engine/vendor/glm"
+
+include "NotReal-Engine/vendor/GLFW"
+include "NotReal-Engine/vendor/Glad"
+include "NotReal-Engine/vendor/imgui"
+
 project "NotReal-Engine"
     location "NotReal-Engine"
     kind "SharedLib"
@@ -30,7 +40,19 @@ project "NotReal-Engine"
     includedirs
     {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}",
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}"
+    }
+
+    links
+    {
+        "GLFW",
+        "Glad",
+        "ImGui",
+        "opengl32.lib"
     }
 
     filter "system:windows"
@@ -41,7 +63,8 @@ project "NotReal-Engine"
         defines
         {
             "NR_PLATFORM_WINDOWS",
-            "NR_BUILD_DLL"
+            "NR_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         buildoptions 
@@ -56,14 +79,17 @@ project "NotReal-Engine"
 
     filter "configurations:Debug"
         defines "NR_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "NR_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "NR_DIST"
+        buildoptions "/MD"
         optimize "On"
 
 project "Sandbox"
@@ -83,7 +109,8 @@ project "Sandbox"
     includedirs
     {
         "NotReal-Engine/vendor/spdlog/include",
-        "NotReal-Engine/src"
+        "NotReal-Engine/src",
+        "%{IncludeDir.glm}"
     }
 
     links
@@ -108,12 +135,15 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "NR_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "NR_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "NR_DIST"
+        buildoptions "/MD"
         optimize "On"
