@@ -146,7 +146,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\NotReal\Renderer\Buffer.h" />
+    <ClInclude Include="src\NotReal\Renderer\Renderer.h" />
     <ClInclude Include="src\NotReal\Renderer\Shader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\NotReal.h" />
     <ClInclude Include="src\NotReal\Application.h" />
@@ -585,7 +588,10 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\NotReal\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\NotReal\Renderer\Renderer.cpp" />
     <ClCompile Include="src\NotReal\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\NotReal\Application.cpp" />
     <ClCompile Include="src\NotReal\ImGui\ImGuiBuild.cpp" />
