@@ -1,5 +1,3 @@
-#pragma once
-
 #include "nrpch.pch"
 
 #define IMGUI_IMPL_OPENGL_LOADER_GLAD

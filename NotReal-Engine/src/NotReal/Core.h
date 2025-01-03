@@ -3,11 +3,15 @@
 #define NR_ENABLE_ASSERTS
 
 #ifdef NR_PLATFORM_WINDOWS
+#ifdef NR_DYNAMIC_LINK
 	#ifdef NR_BUILD_DLL
 		#define NOTREAL_API __declspec(dllexport)
 	#else
 		#define NOTREAL_API __declspec(dllimport)
 	#endif
+#else
+#define NOTREAL_API
+#endif
 #else
 	#error Windows only, womp womp lil bro
 #endif
