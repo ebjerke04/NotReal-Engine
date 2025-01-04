@@ -87,12 +87,6 @@
     <ClInclude Include="src\NotReal\MouseButtonCodes.h">
       <Filter>src\NotReal</Filter>
     </ClInclude>
-    <ClInclude Include="src\NotReal\Platform\Windows\WindowsInput.h">
-      <Filter>src\NotReal\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="src\NotReal\Platform\Windows\WindowsWindow.h">
-      <Filter>src\NotReal\Platform\Windows</Filter>
-    </ClInclude>
     <ClInclude Include="src\NotReal\Window.h">
       <Filter>src\NotReal</Filter>
     </ClInclude>
@@ -1344,6 +1338,16 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\NotReal\Renderer\Buffer.h" />
+    <ClInclude Include="src\NotReal\Renderer\Renderer.h" />
+    <ClInclude Include="src\NotReal\Renderer\Shader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\NotReal\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\NotReal\Renderer\VertexArray.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\NotReal\Application.cpp">
@@ -1364,14 +1368,17 @@
     <ClCompile Include="src\NotReal\Log.cpp">
       <Filter>src\NotReal</Filter>
     </ClCompile>
-    <ClCompile Include="src\NotReal\Platform\Windows\WindowsInput.cpp">
-      <Filter>src\NotReal\Platform\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NotReal\Platform\Windows\WindowsWindow.cpp">
-      <Filter>src\NotReal\Platform\Windows</Filter>
-    </ClCompile>
     <ClCompile Include="src\nrpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\NotReal\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\NotReal\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\NotReal\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\NotReal\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
   </ItemGroup>
 </Project>
