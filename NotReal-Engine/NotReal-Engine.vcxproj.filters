@@ -1348,6 +1348,9 @@
     <ClInclude Include="src\NotReal\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\NotReal\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\NotReal\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\NotReal\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\NotReal\Application.cpp">
@@ -1380,5 +1383,8 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\NotReal\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\NotReal\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\NotReal\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
   </ItemGroup>
 </Project>

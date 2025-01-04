@@ -146,6 +146,9 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\NotReal\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\NotReal\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\NotReal\Renderer\Buffer.h" />
     <ClInclude Include="src\NotReal\Renderer\Renderer.h" />
@@ -590,6 +593,9 @@
     <ClInclude Include="src\NotReal\Renderer\VertexArray.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\NotReal\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\NotReal\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\NotReal\Renderer\Buffer.cpp" />
     <ClCompile Include="src\NotReal\Renderer\Renderer.cpp" />
