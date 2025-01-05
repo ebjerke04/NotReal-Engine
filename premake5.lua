@@ -15,6 +15,7 @@ IncludeDir["GLFW"] = "NotReal-Engine/vendor/GLFW/include"
 IncludeDir["Glad"] = "NotReal-Engine/vendor/Glad/include"
 IncludeDir["ImGui"] = "NotReal-Engine/vendor/imgui"
 IncludeDir["glm"] = "NotReal-Engine/vendor/glm"
+IncludeDir["stb_image"] = "NotReal-Engine/vendor/stb_image"
 
 include "NotReal-Engine/vendor/GLFW"
 include "NotReal-Engine/vendor/Glad"
@@ -37,6 +38,8 @@ project "NotReal-Engine"
     {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/stb_image/**.h",
+        "%{prj.name}/vendor/stb_image/**.cpp",
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl"
     }
@@ -53,7 +56,8 @@ project "NotReal-Engine"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.ImGui}",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.stb_image}"
     }
 
     links

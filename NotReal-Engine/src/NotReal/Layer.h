@@ -3,6 +3,8 @@
 #include "NotReal/Core.h"
 #include "NotReal/Events/Event.h"
 
+#include "NotReal/Core/Timestep.h"
+
 namespace NotReal
 {
 	class NOTREAL_API Layer
@@ -13,7 +15,7 @@ namespace NotReal
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 

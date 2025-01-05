@@ -3,7 +3,7 @@
 
 #include "Log.h"
 
-#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include "NotReal/Renderer/Renderer.h"
 
 #include "Input.h"
@@ -24,59 +24,6 @@ namespace NotReal
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
-
-		m_VertexArray.reset(VertexArray::Create());
-
-		float vertices[3 * 7] = {
-			-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
-			 0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-			 0.0f,  0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f
-		};
-
-		std::shared_ptr<VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
-
-		BufferLayout layout = {
-			{ ShaderDataType::Float3, "a_Position" },
-			{ ShaderDataType::Float4, "a_Color" }
-		};
-		vertexBuffer->SetLayout(layout);
-		m_VertexArray->AddVertexBuffer(vertexBuffer);
-
-		unsigned int indices[3] = { 0, 1, 2 };
-		std::shared_ptr<IndexBuffer> indexBuffer;
-		indexBuffer.reset(IndexBuffer::Create(indices, 3));
-		m_VertexArray->SetIndexBuffer(indexBuffer);
-
-		std::string vertexSource = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec4 a_Color;
-
-			out vec4 v_Color;		
-
-			void main()
-			{
-				v_Color = a_Color;
-				gl_Position = vec4(a_Position, 1.0f);
-			}
-		)";
-
-		std::string fragmentSource = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-
-			in vec4 v_Color;	
-
-			void main()
-			{
-				color = v_Color;
-			}
-		)";
-
-		m_Shader.reset(new Shader(vertexSource, fragmentSource));
 	}
 
 	Application::~Application()
@@ -113,18 +60,12 @@ namespace NotReal
 	{
 		while (m_Running)
 		{
-			RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1.0f});
-			RenderCommand::Clear();
-
-			Renderer::BeginScene();
-
-			m_Shader->Bind();
-			Renderer::Submit(m_VertexArray);
-
-			Renderer::EndScene();
+			float time = (float)glfwGetTime();
+			Timestep timestep = time - m_LastFrameTime;
+			m_LastFrameTime = time;
 
 			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate();
+				layer->OnUpdate(timestep);
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
@@ -140,4 +81,5 @@ namespace NotReal
 		m_Running = false;
 		return true;
 	}
+
 }
