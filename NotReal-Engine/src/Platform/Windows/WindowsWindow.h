@@ -1,6 +1,6 @@
 #pragma once
 
-#include "NotReal/Window.h"
+#include "NotReal/Core/Window.h"
 #include "NotReal/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

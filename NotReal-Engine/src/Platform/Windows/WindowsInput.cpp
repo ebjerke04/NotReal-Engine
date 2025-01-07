@@ -3,7 +3,7 @@
 
 #include <GLFW/glfw3.h>
 
-#include "NotReal/Application.h"
+#include "NotReal/Core/Application.h"
 
 namespace NotReal
 {

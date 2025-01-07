@@ -147,31 +147,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\NotReal.h" />
-    <ClInclude Include="src\NotReal\Application.h" />
-    <ClInclude Include="src\NotReal\Core.h" />
+    <ClInclude Include="src\NotReal\Core\Application.h" />
+    <ClInclude Include="src\NotReal\Core\Core.h" />
+    <ClInclude Include="src\NotReal\Core\EntryPoint.h" />
+    <ClInclude Include="src\NotReal\Core\Input.h" />
+    <ClInclude Include="src\NotReal\Core\KeyCodes.h" />
+    <ClInclude Include="src\NotReal\Core\Layer.h" />
+    <ClInclude Include="src\NotReal\Core\LayerStack.h" />
+    <ClInclude Include="src\NotReal\Core\Log.h" />
+    <ClInclude Include="src\NotReal\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\NotReal\Core\Timestep.h" />
-    <ClInclude Include="src\NotReal\EntryPoint.h" />
+    <ClInclude Include="src\NotReal\Core\Window.h" />
     <ClInclude Include="src\NotReal\Events\ApplicationEvent.h" />
     <ClInclude Include="src\NotReal\Events\Event.h" />
     <ClInclude Include="src\NotReal\Events\KeyEvent.h" />
     <ClInclude Include="src\NotReal\Events\MouseEvent.h" />
     <ClInclude Include="src\NotReal\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\NotReal\Input.h" />
-    <ClInclude Include="src\NotReal\KeyCodes.h" />
-    <ClInclude Include="src\NotReal\Layer.h" />
-    <ClInclude Include="src\NotReal\LayerStack.h" />
-    <ClInclude Include="src\NotReal\Log.h" />
-    <ClInclude Include="src\NotReal\MouseButtonCodes.h" />
     <ClInclude Include="src\NotReal\Renderer\Buffer.h" />
     <ClInclude Include="src\NotReal\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\NotReal\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\NotReal\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\NotReal\Renderer\RenderCommand.h" />
     <ClInclude Include="src\NotReal\Renderer\Renderer.h" />
     <ClInclude Include="src\NotReal\Renderer\RendererAPI.h" />
     <ClInclude Include="src\NotReal\Renderer\Shader.h" />
     <ClInclude Include="src\NotReal\Renderer\Texture.h" />
     <ClInclude Include="src\NotReal\Renderer\VertexArray.h" />
-    <ClInclude Include="src\NotReal\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
@@ -599,14 +600,15 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\NotReal\Application.cpp" />
+    <ClCompile Include="src\NotReal\Core\Application.cpp" />
+    <ClCompile Include="src\NotReal\Core\Layer.cpp" />
+    <ClCompile Include="src\NotReal\Core\LayerStack.cpp" />
+    <ClCompile Include="src\NotReal\Core\Log.cpp" />
     <ClCompile Include="src\NotReal\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\NotReal\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\NotReal\Layer.cpp" />
-    <ClCompile Include="src\NotReal\LayerStack.cpp" />
-    <ClCompile Include="src\NotReal\Log.cpp" />
     <ClCompile Include="src\NotReal\Renderer\Buffer.cpp" />
     <ClCompile Include="src\NotReal\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\NotReal\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\NotReal\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\NotReal\Renderer\Renderer.cpp" />
     <ClCompile Include="src\NotReal\Renderer\RendererAPI.cpp" />

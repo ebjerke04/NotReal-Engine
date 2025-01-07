@@ -57,17 +57,38 @@
     <ClInclude Include="src\NotReal.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\NotReal\Application.h">
-      <Filter>src\NotReal</Filter>
+    <ClInclude Include="src\NotReal\Core\Application.h">
+      <Filter>src\NotReal\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\NotReal\Core.h">
-      <Filter>src\NotReal</Filter>
+    <ClInclude Include="src\NotReal\Core\Core.h">
+      <Filter>src\NotReal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Core\EntryPoint.h">
+      <Filter>src\NotReal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Core\Input.h">
+      <Filter>src\NotReal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Core\KeyCodes.h">
+      <Filter>src\NotReal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Core\Layer.h">
+      <Filter>src\NotReal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Core\LayerStack.h">
+      <Filter>src\NotReal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Core\Log.h">
+      <Filter>src\NotReal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Core\MouseButtonCodes.h">
+      <Filter>src\NotReal\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\NotReal\Core\Timestep.h">
       <Filter>src\NotReal\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\NotReal\EntryPoint.h">
-      <Filter>src\NotReal</Filter>
+    <ClInclude Include="src\NotReal\Core\Window.h">
+      <Filter>src\NotReal\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\NotReal\Events\ApplicationEvent.h">
       <Filter>src\NotReal\Events</Filter>
@@ -84,24 +105,6 @@
     <ClInclude Include="src\NotReal\ImGui\ImGuiLayer.h">
       <Filter>src\NotReal\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\NotReal\Input.h">
-      <Filter>src\NotReal</Filter>
-    </ClInclude>
-    <ClInclude Include="src\NotReal\KeyCodes.h">
-      <Filter>src\NotReal</Filter>
-    </ClInclude>
-    <ClInclude Include="src\NotReal\Layer.h">
-      <Filter>src\NotReal</Filter>
-    </ClInclude>
-    <ClInclude Include="src\NotReal\LayerStack.h">
-      <Filter>src\NotReal</Filter>
-    </ClInclude>
-    <ClInclude Include="src\NotReal\Log.h">
-      <Filter>src\NotReal</Filter>
-    </ClInclude>
-    <ClInclude Include="src\NotReal\MouseButtonCodes.h">
-      <Filter>src\NotReal</Filter>
-    </ClInclude>
     <ClInclude Include="src\NotReal\Renderer\Buffer.h">
       <Filter>src\NotReal\Renderer</Filter>
     </ClInclude>
@@ -109,6 +112,9 @@
       <Filter>src\NotReal\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\NotReal\Renderer\OrthographicCamera.h">
+      <Filter>src\NotReal\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotReal\Renderer\OrthographicCameraController.h">
       <Filter>src\NotReal\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\NotReal\Renderer\RenderCommand.h">
@@ -128,9 +134,6 @@
     </ClInclude>
     <ClInclude Include="src\NotReal\Renderer\VertexArray.h">
       <Filter>src\NotReal\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\NotReal\Window.h">
-      <Filter>src\NotReal</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
@@ -1409,8 +1412,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\NotReal\Application.cpp">
-      <Filter>src\NotReal</Filter>
+    <ClCompile Include="src\NotReal\Core\Application.cpp">
+      <Filter>src\NotReal\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotReal\Core\Layer.cpp">
+      <Filter>src\NotReal\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotReal\Core\LayerStack.cpp">
+      <Filter>src\NotReal\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotReal\Core\Log.cpp">
+      <Filter>src\NotReal\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\NotReal\ImGui\ImGuiBuild.cpp">
       <Filter>src\NotReal\ImGui</Filter>
@@ -1418,19 +1430,13 @@
     <ClCompile Include="src\NotReal\ImGui\ImGuiLayer.cpp">
       <Filter>src\NotReal\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\NotReal\Layer.cpp">
-      <Filter>src\NotReal</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NotReal\LayerStack.cpp">
-      <Filter>src\NotReal</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NotReal\Log.cpp">
-      <Filter>src\NotReal</Filter>
-    </ClCompile>
     <ClCompile Include="src\NotReal\Renderer\Buffer.cpp">
       <Filter>src\NotReal\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\NotReal\Renderer\OrthographicCamera.cpp">
+      <Filter>src\NotReal\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotReal\Renderer\OrthographicCameraController.cpp">
       <Filter>src\NotReal\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\NotReal\Renderer\RenderCommand.cpp">

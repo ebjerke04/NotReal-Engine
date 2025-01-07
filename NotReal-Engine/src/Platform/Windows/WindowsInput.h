@@ -1,6 +1,6 @@
 #pragma once
 
-#include "NotReal/Input.h"
+#include "NotReal/Core/Input.h"
 
 namespace NotReal
 {

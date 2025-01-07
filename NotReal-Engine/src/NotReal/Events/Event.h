@@ -1,7 +1,7 @@
 #pragma once
 
 #include "nrpch.pch"
-#include "NotReal/Core.h"
+#include "NotReal/Core/Core.h"
 
 namespace NotReal {
 	enum class EventType

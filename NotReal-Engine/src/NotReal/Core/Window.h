@@ -3,7 +3,7 @@
 #include "nrpch.pch"
 
 #include "Core.h"
-#include "Events/Event.h"
+#include "NotReal/Events/Event.h"
 
 namespace NotReal {
 

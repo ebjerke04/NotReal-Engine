@@ -1,6 +1,6 @@
 #pragma once
 
-#include "NotReal/Core.h"
+#include "NotReal/Core/Core.h"
 #include "NotReal/Events/Event.h"
 
 #include "NotReal/Core/Timestep.h"
