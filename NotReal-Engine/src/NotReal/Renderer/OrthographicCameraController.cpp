@@ -14,6 +14,8 @@ namespace NotReal
 
 	void OrthographicCameraController::OnUpdate(Timestep ts)
 	{
+		NR_PROFILE_FUNCTION();
+
 		if (Input::IsKeyPressed(NR_KEY_A))
 			m_CameraPosition.x -= m_CameraTranslationSpeed * ts;
 		else if (Input::IsKeyPressed(NR_KEY_D))
@@ -39,6 +41,8 @@ namespace NotReal
 
 	void OrthographicCameraController::OnEvent(Event& e)
 	{
+		NR_PROFILE_FUNCTION();
+
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<MouseScrolledEvent>(NR_BIND_EVENT_FN(OrthographicCameraController::OnMouseScrolled));
 		dispatcher.Dispatch<WindowResizeEvent>(NR_BIND_EVENT_FN(OrthographicCameraController::OnWindowResize));
@@ -46,6 +50,8 @@ namespace NotReal
 
 	bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
+		NR_PROFILE_FUNCTION();
+
 		m_ZoomLevel -= e.GetYOffset() * 0.1;
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 		
@@ -54,6 +60,8 @@ namespace NotReal
 
 	bool OrthographicCameraController::OnWindowResize(WindowResizeEvent& e)
 	{
+		NR_PROFILE_FUNCTION();
+
 		m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 		

@@ -2,6 +2,7 @@
 #include "Renderer.h"
 
 #include "Platform/OpenGL/OpenGLShader.h"
+#include "Renderer2D.h"
 
 namespace NotReal
 {
@@ -9,7 +10,15 @@ namespace NotReal
 
 	void Renderer::Init()
 	{
+		NR_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
+		Renderer2D::Init();
+	}
+
+	void Renderer::Shutdown()
+	{
+		NR_PROFILE_FUNCTION();
 	}
 
 	void Renderer::OnWindowResize(uint32_t width, uint32_t height)

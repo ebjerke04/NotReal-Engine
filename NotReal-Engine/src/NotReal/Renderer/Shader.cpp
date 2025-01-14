@@ -12,7 +12,7 @@ namespace NotReal
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    NR_CORE_ASSERT(false, "RendererAPI::None not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(filepath);
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(filepath);
 		}
 
 		NR_CORE_ASSERT(false, "Unknown RendererAPI state!");
@@ -23,7 +23,7 @@ namespace NotReal
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    NR_CORE_ASSERT(false, "RendererAPI::None not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(name, vertexSource, fragmentSource);
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(name, vertexSource, fragmentSource);
 		}
 
 		NR_CORE_ASSERT(false, "Unknown RendererAPI state!");

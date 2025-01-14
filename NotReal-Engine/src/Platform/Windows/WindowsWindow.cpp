@@ -18,6 +18,8 @@ namespace NotReal {
 
 	Window* Window::Create(const WindowProps& props)
 	{
+		NR_PROFILE_FUNCTION();
+
 		return new WindowsWindow(props);
 	}
 
@@ -28,11 +30,15 @@ namespace NotReal {
 
 	WindowsWindow::~WindowsWindow()
 	{
+		NR_PROFILE_FUNCTION();
+
 		Shutdown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)
 	{
+		NR_PROFILE_FUNCTION();
+
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -54,7 +60,7 @@ namespace NotReal {
 		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
-		SetVSync(true);
+		SetVSync(false);
 
 		// Set GLFW callbacks
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
@@ -149,17 +155,23 @@ namespace NotReal {
 
 	void WindowsWindow::Shutdown()
 	{
+		NR_PROFILE_FUNCTION();
+
 		glfwDestroyWindow(m_Window);
 	}
 
 	void WindowsWindow::OnUpdate()
 	{
+		NR_PROFILE_FUNCTION();
+
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)
 	{
+		NR_PROFILE_FUNCTION();
+
 		if (enabled)
 			glfwSwapInterval(1);
 		else

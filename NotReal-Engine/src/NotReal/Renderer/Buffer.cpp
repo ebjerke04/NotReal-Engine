@@ -8,12 +8,24 @@
 namespace NotReal
 {
 
+	Ref<VertexBuffer> VertexBuffer::Create(uint32_t size)
+	{
+		switch (Renderer::GetAPI())
+		{
+		case RendererAPI::API::None:    NR_CORE_ASSERT(false, "RendererAPI::None not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLVertexBuffer>(size);
+		}
+
+		NR_CORE_ASSERT(false, "Unknown RendererAPI state");
+		return nullptr;
+	}
+
 	Ref<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size)
 	{
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    NR_CORE_ASSERT(false, "RendererAPI::None not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLVertexBuffer>(vertices, size);
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLVertexBuffer>(vertices, size);
 		}
 
 		NR_CORE_ASSERT(false, "Unknown RendererAPI state");
@@ -25,7 +37,7 @@ namespace NotReal
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    NR_CORE_ASSERT(false, "RendererAPI::None not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLIndexBuffer>(indices, count);
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLIndexBuffer>(indices, count);
 		}
 
 		NR_CORE_ASSERT(false, "Unknown RendererAPI state");

@@ -19,6 +19,7 @@
 #include "NotReal/ImGui/ImGuiLayer.h"
 
 #include "NotReal/Renderer/Renderer.h"
+#include "NotReal/Renderer/Renderer2D.h"
 #include "NotReal/Renderer/RenderCommand.h"
 #include "NotReal/Renderer/OrthographicCameraController.h"
 

@@ -20,5 +20,7 @@ private:
 	NotReal::Ref<NotReal::VertexArray> m_SquareVA;
 	NotReal::Ref<NotReal::Shader> m_FlatColorShader;
 
-	glm::vec3 m_SquareColor = { 0.8f, 0.2f, 0.3f };
+	NotReal::Ref<NotReal::Texture2D> m_ChillGuy;
+
+	glm::vec4 m_SquareColor = { 0.8f, 0.2f, 0.3f, 1.0f };
 };

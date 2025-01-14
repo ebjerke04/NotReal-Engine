@@ -13,6 +13,8 @@ namespace NotReal
 
 	void OpenGLContext::Init()
 	{
+		NR_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		NR_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -22,6 +24,8 @@ namespace NotReal
 
 	void OpenGLContext::SwapBuffers()
 	{
+		NR_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);
 	}
 

@@ -1,7 +1,5 @@
 #include "Sandbox2D.h"
 
-#include "Platform/OpenGL/OpenGLShader.h"
-
 #include "imgui/imgui.h"
 #include <glm/gtc/type_ptr.hpp>
 
@@ -12,55 +10,54 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
-	m_SquareVA = NotReal::VertexArray::Create();
+	NR_PROFILE_FUNCTION();
 
-	float squareVertices[5 * 4] = {
-		-0.5f, -0.5f, 0.0f,
-		 0.5f, -0.5f, 0.0f,
-		 0.5f,  0.5f, 0.0f,
-		-0.5f,  0.5f, 0.0f
-	};
-	
-	NotReal::Ref<NotReal::VertexBuffer> squareVB;
-	squareVB = NotReal::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
-	squareVB->SetLayout({
-		{ NotReal::ShaderDataType::Float3, "a_Position" }
-	});
-	m_SquareVA->AddVertexBuffer(squareVB);
-
-	uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-	NotReal::Ref<NotReal::IndexBuffer> squareIB;
-	squareIB = NotReal::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
-	m_SquareVA->SetIndexBuffer(squareIB);
-
-	m_FlatColorShader = NotReal::Shader::Create("assets/shaders/FlatColorShader.glsl");
+	m_ChillGuy = NotReal::Texture2D::Create("assets/textures/ChillGuy.png");
 }
 
 void Sandbox2D::OnDetach()
 {
+	NR_PROFILE_FUNCTION();
 }
 
 void Sandbox2D::OnUpdate(NotReal::Timestep ts)
 {
+	NR_PROFILE_FUNCTION();
+
 	m_CameraController.OnUpdate(ts);
 
-	NotReal::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
-	NotReal::RenderCommand::Clear();
+	{
+		NR_PROFILE_SCOPE("Renderer Prep");
+		NotReal::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
+		NotReal::RenderCommand::Clear();
+	}
 
-	NotReal::Renderer::BeginScene(m_CameraController.GetCamera());
+	{
+		NR_PROFILE_SCOPE("Renderer DrawCalls");
+		NotReal::Renderer2D::BeginScene(m_CameraController.GetCamera());
+		//NotReal::Renderer2D::DrawRotatedQuad({ 0.0f, 0.0f }, { 0.5f, 0.5f }, glm::radians(45.0f), m_SquareColor);
+		//NotReal::Renderer2D::DrawQuad({ 0.7f, 0.0f }, { 0.5f, 0.5f }, m_SquareColor);
 
-	std::dynamic_pointer_cast<NotReal::OpenGLShader>(m_FlatColorShader)->Bind();
-	std::dynamic_pointer_cast<NotReal::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+		for (int x = 0; x < 200; x++)
+		{
+			for (int y = 0; y < 200; y++)
+			{
+				NotReal::Renderer2D::DrawQuad({ x * 0.05f, y * 0.05f }, { 0.05f, 0.05f }, m_ChillGuy);
+			}
+		}
 
-	NotReal::Renderer::Submit(m_FlatColorShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		NotReal::Renderer2D::DrawQuad({ -0.5f, -0.5f }, { 0.3f, 0.3f }, m_SquareColor);
 
-	NotReal::Renderer::EndScene();
+		NotReal::Renderer2D::EndScene();
+	}
 }
 
 void Sandbox2D::OnImGuiRender()
 {
+	NR_PROFILE_FUNCTION();
+
 	ImGui::Begin("Settings");
-	ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
+	ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
 	ImGui::End();
 }
 
